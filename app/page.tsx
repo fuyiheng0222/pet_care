@@ -97,20 +97,25 @@ function BookingForm() {
           <option>先到店评估</option>
         </select>
       </label>
-      <label>
-        期望日期
-        <input type="date" name="date" min={minDate} required />
-      </label>
-      <label>
-        期望时段
-        <select name="time" required defaultValue="">
-          <option value="">请选择</option>
-          <option>10:00 - 12:00</option>
-          <option>12:00 - 15:00</option>
-          <option>15:00 - 18:00</option>
-          <option>18:00 - 21:00</option>
-        </select>
-      </label>
+      <fieldset className="datetime-field span-2">
+        <legend>期望到店时间</legend>
+        <div className="datetime-controls">
+          <label>
+            日期
+            <input type="date" name="date" min={minDate} required />
+          </label>
+          <label>
+            时段
+            <select name="time" required defaultValue="">
+              <option value="">请选择</option>
+              <option>10:00 - 12:00</option>
+              <option>12:00 - 15:00</option>
+              <option>15:00 - 18:00</option>
+              <option>18:00 - 21:00</option>
+            </select>
+          </label>
+        </div>
+      </fieldset>
       <label className="span-2">
         备注
         <textarea name="note" placeholder="宠物年龄、体重、是否怕水、是否打结等" />
