@@ -24,6 +24,7 @@ pnpm-debug.log*
 
 # Dependencies and build outputs
 node_modules/
+.npm-cache/
 dist/
 build/
 out/
