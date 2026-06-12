@@ -3,12 +3,17 @@
 import type { FormEvent } from "react";
 import { useMemo, useState } from "react";
 
-function todayInputValue() {
-  const today = new Date();
-  const year = today.getFullYear();
-  const month = String(today.getMonth() + 1).padStart(2, "0");
-  const day = String(today.getDate()).padStart(2, "0");
+function formatDateInputValue(date: Date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
   return `${year}-${month}-${day}`;
+}
+
+function tomorrowInputValue() {
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  return formatDateInputValue(tomorrow);
 }
 
 function PawIcon() {
@@ -54,7 +59,7 @@ function SendIcon() {
 
 function BookingForm() {
   const [note, setNote] = useState("");
-  const minDate = useMemo(() => todayInputValue(), []);
+  const defaultDate = useMemo(() => tomorrowInputValue(), []);
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -102,7 +107,7 @@ function BookingForm() {
         <div className="datetime-controls">
           <label>
             日期
-            <input type="date" name="date" min={minDate} required />
+            <input type="date" name="date" min={defaultDate} defaultValue={defaultDate} required />
           </label>
         </div>
       </fieldset>
