@@ -104,16 +104,6 @@ function BookingForm() {
             日期
             <input type="date" name="date" min={minDate} required />
           </label>
-          <label>
-            时段
-            <select name="time" required defaultValue="">
-              <option value="">请选择</option>
-              <option>10:00 - 12:00</option>
-              <option>12:00 - 15:00</option>
-              <option>15:00 - 18:00</option>
-              <option>18:00 - 21:00</option>
-            </select>
-          </label>
         </div>
       </fieldset>
       <label className="span-2">
